@@ -173,3 +173,112 @@ footer {
   border-radius: 5px;
   margin: 20px auto;
 }
+
+#errorName {
+  color: #FF0000;
+  font-size: 1rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#error {
+    color: #b00020;
+    text-align: center;
+}
+
+/*
+  Media Queries for Responsive Design
+  Adjusts layout and styling for smaller screens
+*/
+@media (max-width: 768px) {
+
+    .illustrationimage {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    .form-card {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    #login-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #name {
+        width: 100%;
+        max-width: 320px;
+        padding: 12px;
+    }
+
+    #submitName {
+        padding: 12px 20px;
+    }
+
+    #appDescription {
+        max-width: 100%;
+        padding: 1rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    header {
+        justify-content: center;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+
+    header .logo {
+        font-size: 1.5rem;
+    }
+
+    /* Masquer le logo sur les pages secondaires */
+    header:has(#messageBienvenue) .logo {
+        display: none;
+    }
+
+    /* Centrer le message de bienvenue */
+    header:has(#messageBienvenue) {
+        justify-content: center;
+        text-align: center;
+    }
+
+    #messageBienvenue {
+        font-size: 1.4rem;
+    }
+
+    #listeTaches {
+        padding: 12px;
+    }
+
+    #listeTaches li {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .titre-tache {
+        grid-column: 1 / -1;
+        overflow-wrap: anywhere;
+    }
+
+    .terminee,
+    .a-faire {
+        margin-left: 0;
+        justify-self: start;
+    }
+
+    .details-button {
+        justify-self: end;
+    }
+    
+}

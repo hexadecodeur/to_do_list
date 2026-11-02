@@ -28,6 +28,7 @@ fetch("http://localhost:3000/todos")
         }
         return response.json();
     })
+
     // Traitement des données reçues de l'API
     .then(data => {
 
@@ -40,7 +41,11 @@ fetch("http://localhost:3000/todos")
         data[0].todolist.forEach(task => {
 
             const elementTache = document.createElement('li');
-            elementTache.textContent = task.text;
+            const titreTache = document.createElement('span');
+            titreTache.classList.add('titre-tache');
+            titreTache.textContent = task.text;
+
+            elementTache.appendChild(titreTache);
 
             listeTaches.appendChild(elementTache);
 
@@ -65,7 +70,11 @@ fetch("http://localhost:3000/todos")
                 window.location.href = `taskDetails.html?id=${task.id}`;
             })
         });
-        
+    })
+    // Gestion des erreurs lors de la récupération des tâches
+    .catch(error => {
+        document.getElementById('error').textContent = 'Erreur lors de la récupération des tâches';
+        console.error('Erreur:', error);
     });
 
 // Gestion du rafraîchissement de la page

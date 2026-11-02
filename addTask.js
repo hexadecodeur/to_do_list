@@ -40,6 +40,7 @@ form.addEventListener('submit', function (event) {
     })
     // Gestion des erreurs lors de l'ajout de la tâche
     .catch(error => {
-        console.error('Erreur:', error);
+        document.getElementById('error').textContent = 'Erreur lors de l\'ajout de la tâche';
+        console.log(error);
     });
 });

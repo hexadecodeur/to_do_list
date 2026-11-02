@@ -14,7 +14,12 @@ if (utilisateur === null) {
 //prend la tâche séléctionnée et affiche ses détails dans la page taskDetails.html
 fetch(`http://localhost:3000/todos/${id}`)
     // Vérification de la réponse de l'API
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Erreur API");
+        }
+        return response.json();
+    })
     // Traitement des données reçues de l'API
     .then(data => {
 
@@ -60,6 +65,7 @@ fetch(`http://localhost:3000/todos/${id}`)
             })
             // Gestion des erreurs lors de la mise à jour de la tâche
             .catch(error => {
+                document.getElementById('error').textContent = 'Erreur lors de la mise à jour de la tâche';
                 console.log(error);
             });
         });
@@ -88,6 +94,7 @@ fetch(`http://localhost:3000/todos/${id}`)
             })
             // Gestion des erreurs lors de la mise à jour de la tâche
             .catch(error => {
+                document.getElementById('error').textContent = 'Erreur lors de la mise à jour de la tâche';
                 console.log(error);
             });
         });
@@ -111,6 +118,7 @@ fetch(`http://localhost:3000/todos/${id}`)
             })
             // Gestion des erreurs lors de la suppression de la tâche
             .catch(error => {
+                document.getElementById('error').textContent = 'Erreur lors de la suppression de la tâche';
                 console.log(error);
             });
         });

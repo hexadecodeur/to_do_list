@@ -34,5 +34,6 @@ fetch("http://localhost:3000/todos")
     })
     // Gestion des erreurs lors de la récupération des statistiques
     .catch(error => {
+        document.getElementById('error').textContent = 'Erreur lors de la récupération des statistiques';
         console.error('Erreur:', error);
     });
