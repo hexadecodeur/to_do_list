@@ -16,7 +16,7 @@ form.addEventListener('submit', function (event) {
     const addTaskTags = document.getElementById('addTaskTags').value;
 
     // Envoi de la nouvelle tâche à l'API
-    fetch("http://localhost:3000/todos", {
+    fetch("https://totolist-api.vercel.app/todos", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

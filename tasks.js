@@ -20,7 +20,7 @@ statsButton.addEventListener('click', function () {
 });
 
 // Récupération des tâches depuis l'API
-fetch("http://localhost:3000/todos")
+fetch("https://totolist-api.vercel.app/todos")
     // Vérification de la réponse de l'API
     .then(response => {
         if (!response.ok) {

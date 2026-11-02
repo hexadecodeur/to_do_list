@@ -12,7 +12,7 @@ if (utilisateur === null) {
 }
 
 //prend la tâche séléctionnée et affiche ses détails dans la page taskDetails.html
-fetch(`http://localhost:3000/todos/${id}`)
+fetch(`https://totolist-api.vercel.app/todos/${id}`)
     // Vérification de la réponse de l'API
     .then(response => {
         if (!response.ok) {
@@ -47,7 +47,7 @@ fetch(`http://localhost:3000/todos/${id}`)
             copie.is_complete = true;
 
             // Envoi de la mise à jour de la tâche à l'API
-            fetch(`http://localhost:3000/todos/${id}`, {
+            fetch(`https://totolist-api.vercel.app/todos/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ fetch(`http://localhost:3000/todos/${id}`)
             copie.is_complete = false;
 
             // Envoi de la mise à jour de la tâche à l'API
-            fetch(`http://localhost:3000/todos/${id}`, {
+            fetch(`https://totolist-api.vercel.app/todos/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -102,7 +102,7 @@ fetch(`http://localhost:3000/todos/${id}`)
         // Ajout de l'événement pour le bouton "Supprimer la tâche"
         deleteButton.addEventListener('click', function() {
             // Envoi de la requête de suppression à l'API
-            fetch(`http://localhost:3000/todos/${id}`, {
+            fetch(`https://totolist-api.vercel.app/todos/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
