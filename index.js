@@ -1,7 +1,7 @@
 const form = document.getElementById('login-form')
 const errorName = document.getElementById('errorName');
 const nameInput = document.getElementById('name');
-const regex = /^\p{L}+(?:-\p{L}+)*$/u;
+const regex = /^\p{L}+(?:[ '’-]\p{L}+)*$/u;
 
 // Ajout d'un événement pour le formulaire de connexion
 form.addEventListener('submit', (event) => {

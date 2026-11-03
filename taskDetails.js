@@ -20,6 +20,11 @@ fetch(`https://totolist-api.vercel.app/todos/${id}`)
         }
         return response.json();
     })
+    // Gestion des erreurs lors de la récupération de la tâche
+    .catch(error => {
+        document.getElementById('error').textContent = 'Erreur lors de la récupération de la tâche';
+        console.log(error);
+    })
     // Traitement des données reçues de l'API
     .then(data => {
 
