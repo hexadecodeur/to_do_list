@@ -12,8 +12,14 @@ if (utilisateur === null) {
 form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const taskName = document.getElementById('taskName').value;
-    const addTaskTags = document.getElementById('addTaskTags').value;
+    const taskName = document.getElementById('taskName').value.trim();
+
+    if (taskName.length === 0) {
+        document.getElementById('error').textContent = 'Le nom de la tâche est requis';
+        return;
+    }
+
+    const tags = document.getElementById('addTaskTags').value.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
 
     // Envoi de la nouvelle tâche à l'API
     fetch("https://totolist-api.vercel.app/todos", {
@@ -23,7 +29,7 @@ form.addEventListener('submit', function (event) {
         },
         body: JSON.stringify({
             text: taskName,
-            Tags: addTaskTags.split(',').map(tag => tag.trim())
+            Tags: tags
         })
     })
     // Vérification de la réponse de l'API
